@@ -29,21 +29,25 @@ class FourthScreenState extends State<FourthScreen> {
               child: Image(image: AssetImage('assets/images/acc_created.png')),
             ),
           ),
+          Spacer(),
           Container(
               child: Text(
             "Here's the Jetpak warehouse address",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           )),
+          Spacer(),
           Container(
               child: Text(
             "This is where you will send your goods.\nWe will Jetpak it to your destination.",
             style: TextStyle(fontSize: 16),
           )),
+          Spacer(),
           Container(
             color: Color(0xFF8574CE),
             child: Text(
                 "(209)-543-6857 \n 4520 Sun Down PL \n Salida, California(CA), \n 95368"),
           ),
+          Spacer(),
           ButtonTheme(
             minWidth: 250.0,
             height: 50.0,
