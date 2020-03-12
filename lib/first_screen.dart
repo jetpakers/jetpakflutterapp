@@ -15,7 +15,7 @@ class FirstScreenState extends State<FirstScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image(image: AssetImage('assets/images/logo.jpg')),
+          Image(image: AssetImage('assets/images/logo.png')),
           Center(
             child: Image(image: AssetImage('assets/images/jetPakhome.png')),
           )
