@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class FormScreen extends StatefulWidget {
@@ -19,29 +18,42 @@ class FormScreenState extends State<FormScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget _buildProductType() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Product Type'),
-      maxLength: 10,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Product type is Required';
-        }
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Product Type',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        maxLength: 10,
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Product type is Required';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        productType = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          productType = value;
+        },
+      ),
     );
   }
 
   Widget _buildProductName() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Product Name'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Product Name is Required';
-        }
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Product Name',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Product Name is Required';
+          }
 
 //        if (!RegExp(
 //            r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
@@ -49,84 +61,112 @@ class FormScreenState extends State<FormScreen> {
 //          return 'Please enter a valid email Address';
 //        }
 
-        return null;
-      },
-      onSaved: (String value) {
-        productName = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          productName = value;
+        },
+      ),
     );
   }
 
   Widget _buildDescription() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Product Description'),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Product Description',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
 //      keyboardType: TextInputType.visiblePassword,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Product Description is Required';
-        }
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Product Description is Required';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        productDescription = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          productDescription = value;
+        },
+      ),
     );
   }
 
   Widget _buildEstimatedWeight() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Estimated Weight'),
-      keyboardType: TextInputType.number,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Estimated Weight is Required';
-        }
-        else {
-          int calories = int.tryParse(value);
-          if (calories == null || calories <= 0) {
-            return 'Calories must be greater than 0';
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Estimated Weight',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        keyboardType: TextInputType.number,
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Estimated Weight is Required';
+          } else {
+            int calories = int.tryParse(value);
+            if (calories == null || calories <= 0) {
+              return 'Calories must be greater than 0';
+            }
           }
-        }
 
-        return null;
-      },
-      onSaved: (String value) {
-        estimatedWeight = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          estimatedWeight = value;
+        },
+      ),
     );
   }
 
   Widget _buildPackageSource() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Package Source'),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Package Source',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
 //      keyboardType: TextInputType.phone,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Package Source is Required';
-        }
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Package Source is Required';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        packageSource = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          packageSource = value;
+        },
+      ),
     );
   }
 
   Widget _buildSourceAddress() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Source Address'),
-      validator: (String value) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Source Address',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        validator: (String value) {
           if (value.isEmpty) {
             return 'Source Address is Required';
           }
 
-        return null;
-      },
-      onSaved: (String value) {
-        sourceAddress = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          sourceAddress = value;
+        },
+      ),
     );
   }
 

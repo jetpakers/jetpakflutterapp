@@ -19,83 +19,119 @@ class ThirdScreenState extends State<ThirdScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget _buildPhoneNumber() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Phone Number'),
-      maxLength: 10,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Phone Number is Required';
-        }
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Phone Number',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        maxLength: 20,
+        keyboardType: TextInputType.number,
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Phone Number is Required';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        phoneNumber = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          phoneNumber = value;
+        },
+      ),
     );
   }
 
   Widget _buildCountry() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Country'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Country is Required';
-        }
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Country',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Country is Required';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        country = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          country = value;
+        },
+      ),
     );
   }
 
   Widget _buildRegion() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Region'),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Region',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
 //      keyboardType: TextInputType.visiblePassword,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Region is Required';
-        }
-        return null;
-      },
-      onSaved: (String value) {
-        region = value;
-      },
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Region is Required';
+          }
+          return null;
+        },
+        onSaved: (String value) {
+          region = value;
+        },
+      ),
     );
   }
 
   Widget _buildMunicipality() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Municipality'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Municipality is Required';
-        }
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Municipality',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Municipality is Required';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        municipality = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          municipality = value;
+        },
+      ),
     );
   }
 
   Widget _buildAddress() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Address'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Address is Required';
-        }
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Address',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Address is Required';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        address = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          address = value;
+        },
+      ),
     );
   }
 
@@ -157,14 +193,12 @@ class ThirdScreenState extends State<ThirdScreen> {
               ButtonTheme(
                 minWidth: 250.0,
                 height: 50.0,
-                child :
-                RaisedButton(
+                child: RaisedButton(
                   color: Color(0xFFEA7313),
                   shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(12.0),
                       side: BorderSide(color: Colors.grey)),
                   onPressed: () {
-
                     if (!_formKey.currentState.validate()) {
                       return;
                     }

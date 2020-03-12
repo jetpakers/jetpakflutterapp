@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jetpaksender/create_sender_account.dart';
 import 'package:jetpaksender/main.dart';
 import 'package:validators/validators.dart' as validator;
 
@@ -19,89 +20,122 @@ class SecondScreenState extends State<SecondScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget _buildName() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Name'),
-      maxLength: 10,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Name is Required';
-        }
-
-        return null;
-      },
-      onSaved: (String value) {
-        name = value;
-      },
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Name',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        maxLength: 10,
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Name is Required';
+          }
+          return null;
+        },
+        onSaved: (String value) {
+          name = value;
+        },
+      ),
     );
   }
 
   Widget _buildsurname() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Surname'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Surname is Required';
-        }
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Surname',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Surname is Required';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        surname = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          surname = value;
+        },
+      ),
     );
   }
 
   Widget _buildEmail() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Email Address'),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Email Address',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
 //      keyboardType: TextInputType.visiblePassword,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Email Address is Required';
-        }
-        if (!RegExp(
-         r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-           .hasMatch(value)) {
-         return 'Please enter a valid email Address';
-       }
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Email Address is Required';
+          }
+          if (!RegExp(
+                  r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+              .hasMatch(value)) {
+            return 'Please enter a valid email Address';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        email = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          email = value;
+        },
+      ),
     );
   }
 
   Widget _buildPassword() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Password'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Password is Required';
-        }
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Password',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Password is Required';
+          }
 
-        return null;
-      },
-      onSaved: (String value) {
-        password = value;
-      },
+          return null;
+        },
+        onSaved: (String value) {
+          password = value;
+        },
+      ),
     );
   }
 
   Widget _buildVerifiedPassword() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Verify Password'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Password verification is Required';
-        }
-
-        return null;
-      },
-      onSaved: (String value) {
-        verifyPassword = value;
-      },
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+            labelText: 'Verify Password',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Colors.black))),
+        validator: (String value) {
+          if (value.isEmpty) {
+            return 'Password verification is Required';
+          }
+          return null;
+        },
+        onSaved: (String value) {
+          verifyPassword = value;
+        },
+      ),
     );
   }
 
@@ -154,7 +188,7 @@ class SecondScreenState extends State<SecondScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-             _buildName(),
+              _buildName(),
               _buildsurname(),
               _buildEmail(),
               _buildPassword(),
@@ -163,19 +197,20 @@ class SecondScreenState extends State<SecondScreen> {
               ButtonTheme(
                 minWidth: 250.0,
                 height: 50.0,
-                child :
-                RaisedButton(
+                child: RaisedButton(
                   color: Color(0xFFEA7313),
                   shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(12.0),
                       side: BorderSide(color: Colors.grey)),
                   onPressed: () {
-
-                  if (!_formKey.currentState.validate()) {
-                  return;
-                 }
-
-                  _formKey.currentState.save();
+                    if (!_formKey.currentState.validate()) {
+                      return;
+                    }
+                    _formKey.currentState.save();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ThirdScreen())
+                    );
                   },
                   child: Text(
                     'Create Account',
