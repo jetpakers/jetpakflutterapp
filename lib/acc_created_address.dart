@@ -19,7 +19,7 @@ class FourthScreenState extends State<FourthScreen> {
           Spacer(flex: 1),
           Container(
               child: Text(
-            'Account Created',
+            'Account created successfully !',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           )),
           Spacer(flex: 1),
@@ -39,13 +39,15 @@ class FourthScreenState extends State<FourthScreen> {
           Container(
               child: Text(
             "This is where you will send your goods.\nWe will Jetpak it to your destination.",
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 18),
           )),
           Spacer(),
           Container(
             color: Color(0xFF8574CE),
             child: Text(
-                "(209)-543-6857 \n 4520 Sun Down PL \n Salida, California(CA), \n 95368"),
+                "(209)-543-6857 \n 4520 Sun Down PL \n Salida, California(CA), \n 95368",
+                style: TextStyle(fontSize: 22),
+            ),
           ),
           Spacer(),
           ButtonTheme(
@@ -63,6 +65,7 @@ class FourthScreenState extends State<FourthScreen> {
               ),
             ),
           ),
+          Spacer(),
         ],
       ),
     );
