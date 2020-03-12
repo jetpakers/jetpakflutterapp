@@ -18,10 +18,23 @@ class FirstScreenState extends State<FirstScreen> {
           Image(image: AssetImage('assets/images/logo.png')),
           Center(
             child: Image(image: AssetImage('assets/images/jetPakhome.png')),
-          )
+          ),
+          RaisedButton(
+            color: Colors.deepOrange,
+            onPressed: () {  },
+            child: Text ('Fly Jetpak',style: TextStyle (color: Colors.white),),
+    ),
+          Column(
+            children: <Widget>[
+              RaisedButton(
+                color: Colors.white,
+                onPressed: () {  },
+                child: Text ('Send Jetpak',style: TextStyle (color: Colors.deepOrange),),
+              ),
+            ],
+    ),
         ],
-      )
-
+      ),
     );
   }
 }
