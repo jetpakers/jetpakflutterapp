@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jetpaksender/send_request_form.dart';
 import 'package:jetpaksender/first_screen.dart';
+import 'package:jetpaksender/create_app_account.dart';
+import 'package:jetpaksender/create_sender_account.dart';
 
 void main() => runApp(JetpakApp());
 
@@ -12,7 +14,7 @@ class JetpakApp extends StatelessWidget{
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: FirstScreen(),
+      home: ThirdScreen(),
     );
   }
 }
