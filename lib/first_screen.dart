@@ -20,7 +20,10 @@ class FirstScreenState extends State<FirstScreen> {
           Center(
             child: Image(image: AssetImage('assets/images/jetPakhome.png')),
           ),
-          RaisedButton(
+    ButtonTheme(
+    minWidth: 250.0,
+    height: 50.0,
+    child : RaisedButton(
             color: Color(0xFFEA7313),
             shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(12.0),
@@ -31,8 +34,13 @@ class FirstScreenState extends State<FirstScreen> {
               style: TextStyle(color: Colors.white),
             ),
           ),
+    ),
           Column(
             children: <Widget>[
+              ButtonTheme(
+                minWidth: 250.0,
+                height: 50.0,
+                child :
               RaisedButton(
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
@@ -44,7 +52,7 @@ class FirstScreenState extends State<FirstScreen> {
                   style: TextStyle(color: Color(0xFF4E37B2)),
                 ),
               ),
-            ],
+              ),],
           ),
         ],
       ),
