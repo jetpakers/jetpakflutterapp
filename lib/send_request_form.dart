@@ -192,7 +192,6 @@ class FormScreenState extends State<FormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, 100),
         child: Container(
@@ -232,46 +231,50 @@ class FormScreenState extends State<FormScreen> {
           ),
         ),
       ),
-      body: Container(
-        margin: EdgeInsets.all(24),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _buildProductType(),
-              _buildProductName(),
-              _buildDescription(),
-              _buildEstimatedWeight(),
-              _buildPackageSource(),
-              _buildRetailer(),
-              SizedBox(height: 100),
-              RaisedButton(
-                child: Text(
-                  'Submit',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-                onPressed: () {
-                  if (!_formKey.currentState.validate()) {
-                    return;
-                  }
+      body:
+      Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Form(
+              key: _formKey,
+              child: ListView(
+                padding: const EdgeInsets.all(8),
+                children: <Widget>[
+                  _buildProductType(),
+                  _buildProductName(),
+                  _buildDescription(),
+                  _buildEstimatedWeight(),
+                  _buildPackageSource(),
+                  _buildRetailer(),
+                SizedBox(height: 100),
+                  RaisedButton(
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    onPressed: () {
+                      if (!_formKey.currentState.validate()) {
+                        return;
+                      }
+                      _formKey.currentState.save();
+                      print(productType);
+                      print(productName);
+                      print(productDescription);
+                      print(estimatedWeight);
+                      print(packageSource);
+                      print(retailer);
 
-                  _formKey.currentState.save();
-
-                  print(productType);
-                  print(productName);
-                  print(productDescription);
-                  print(estimatedWeight);
-                  print(packageSource);
-                  print(retailer);
-
-                  //Send to API
-                },
+                      //Send to API
+                    },
+                  ),
+                ],
+                scrollDirection: Axis.vertical,
               ),
-              Spacer(),
-            ],
+            ),
           ),
-        ),
+        )
+
       ),
     );
   }

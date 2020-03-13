@@ -252,8 +252,8 @@ class InvoiceScreenState extends State<InvoiceScreen> {
         margin: EdgeInsets.all(24),
         child: Form(
           key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
+            padding: const EdgeInsets.all(8),
             children: <Widget>[
               _buildShipmentNumber(),
               _buildProductType(),
@@ -263,8 +263,8 @@ class InvoiceScreenState extends State<InvoiceScreen> {
               _buildFees(),
               _buildInsuranceFees(),
               _buildAmount(),
-              SizedBox(height: 100),
               RaisedButton(
+                color: Colors.deepOrange,
                 child: Text(
                   'Submit',
                   style: TextStyle(color: Colors.white, fontSize: 16),
@@ -273,7 +273,6 @@ class InvoiceScreenState extends State<InvoiceScreen> {
                   if (!_formKey.currentState.validate()) {
                     return;
                   }
-
                   _formKey.currentState.save();
 
                   print(productType);
@@ -287,8 +286,9 @@ class InvoiceScreenState extends State<InvoiceScreen> {
                   //Send to API
                 },
               ),
-              Spacer(),
+
             ],
+            scrollDirection: Axis.vertical,
           ),
         ),
       ),
