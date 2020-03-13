@@ -119,51 +119,49 @@ class FormScreenState extends State<FormScreen> {
     return Container(
 //      padding: const EdgeInsets.all(8.0),
         child: Column(
-          children: <Widget>[
-            Text("Choose Package Source", textAlign: TextAlign.left,
-            ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: 80.0,
-                    height: 75.0,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
+      children: <Widget>[
+        Text(
+          "Choose Package Source",
+          textAlign: TextAlign.left,
+        ),
+        Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: 80.0,
+                height: 75.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
 //                  fit: BoxFit.cover,
-                          image: AssetImage('assets/images/shopping.png')
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      color: Color(0xFFEA7313),
-                    ),
-                  ),
-                  //Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Container(
-                      width: 80.0,
-                      height: 75.0,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-//                  fit: BoxFit.cover,
-                            image: AssetImage('assets/images/home-run.png')
-                        ),
-                        border: Border.all(
-                          color: Colors.black,
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)
-                        ),
-                        color: Colors.white,
-                      ),
-                    ),
-                  )
-                ],
+                      image: AssetImage('assets/images/shopping.png')),
+                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                  color: Color(0xFFEA7313),
+                ),
               ),
-            )
-          ],
+              //Spacer(),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Container(
+                  width: 80.0,
+                  height: 75.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+//                  fit: BoxFit.cover,
+                        image: AssetImage('assets/images/home-run.png')),
+                    border: Border.all(
+                      color: Colors.black,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          ),
         )
-    );
+      ],
+    ));
   }
 
   Widget _buildRetailer() {
@@ -231,24 +229,30 @@ class FormScreenState extends State<FormScreen> {
           ),
         ),
       ),
-      body:
-      Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Form(
-              key: _formKey,
-              child: ListView(
-                padding: const EdgeInsets.all(8),
-                children: <Widget>[
-                  _buildProductType(),
-                  _buildProductName(),
-                  _buildDescription(),
-                  _buildEstimatedWeight(),
-                  _buildPackageSource(),
-                  _buildRetailer(),
-                SizedBox(height: 100),
-                  RaisedButton(
+      body: Center(
+          child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Form(
+            key: _formKey,
+            child: ListView(
+              padding: const EdgeInsets.all(8),
+              children: <Widget>[
+                _buildProductType(),
+                _buildProductName(),
+                _buildDescription(),
+                _buildEstimatedWeight(),
+                _buildPackageSource(),
+                _buildRetailer(),
+                SizedBox(height: 50),
+                ButtonTheme(
+                  minWidth: 250.0,
+                  height: 50.0,
+                  child: RaisedButton(
+                    color: Color(0xFFEA7313),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(12.0),
+                        side: BorderSide(color: Colors.grey)),
                     child: Text(
                       'Submit',
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -268,14 +272,13 @@ class FormScreenState extends State<FormScreen> {
                       //Send to API
                     },
                   ),
-                ],
-                scrollDirection: Axis.vertical,
-              ),
+                )
+              ],
+              scrollDirection: Axis.vertical,
             ),
           ),
-        )
-
-      ),
+        ),
+      )),
     );
   }
 }
