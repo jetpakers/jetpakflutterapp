@@ -99,11 +99,6 @@ class FormScreenState extends State<FormScreen> {
         validator: (String value) {
           if (value.isEmpty) {
             return 'Estimated Weight is Required';
-          } else {
-            int calories = int.tryParse(value);
-            if (calories == null || calories <= 0) {
-              return 'Calories must be greater than 0';
-            }
           }
 
           return null;
@@ -120,9 +115,12 @@ class FormScreenState extends State<FormScreen> {
 //      padding: const EdgeInsets.all(8.0),
         child: Column(
       children: <Widget>[
-        Text(
-          "Choose Package Source",
-          textAlign: TextAlign.left,
+        Container(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            "Choose Package Source",
+            textAlign: TextAlign.left, style: TextStyle(fontSize: 16),
+          ),
         ),
         Container(
           child: Row(
