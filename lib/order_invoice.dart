@@ -263,10 +263,16 @@ class InvoiceScreenState extends State<InvoiceScreen> {
               _buildFees(),
               _buildInsuranceFees(),
               _buildAmount(),
-              RaisedButton(
-                color: Colors.deepOrange,
+              ButtonTheme(
+                minWidth: 250.0,
+                height: 50.0,
+              child: RaisedButton(
+                color: Color(0xFFEA7313),
+                shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(12.0),
+                    side: BorderSide(color: Colors.grey)),
                 child: Text(
-                  'Submit',
+                  'Make payment',
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 onPressed: () {
@@ -287,7 +293,7 @@ class InvoiceScreenState extends State<InvoiceScreen> {
                 },
               ),
 
-            ],
+              ), ],
             scrollDirection: Axis.vertical,
           ),
         ),
