@@ -13,7 +13,7 @@ class FormScreenState extends State<FormScreen> {
   String productDescription;
   String estimatedWeight;
   String packageSource;
-  String sourceAddress;
+  String retailer;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -26,7 +26,6 @@ class FormScreenState extends State<FormScreen> {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 borderSide: BorderSide(color: Colors.black))),
-        maxLength: 10,
         validator: (String value) {
           if (value.isEmpty) {
             return 'Product type is Required';
@@ -54,13 +53,6 @@ class FormScreenState extends State<FormScreen> {
           if (value.isEmpty) {
             return 'Product Name is Required';
           }
-
-//        if (!RegExp(
-//            r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-//            .hasMatch(value)) {
-//          return 'Please enter a valid email Address';
-//        }
-
           return null;
         },
         onSaved: (String value) {
@@ -124,47 +116,74 @@ class FormScreenState extends State<FormScreen> {
   }
 
   Widget _buildPackageSource() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        decoration: InputDecoration(
-            labelText: 'Package Source',
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                borderSide: BorderSide(color: Colors.black))),
-//      keyboardType: TextInputType.phone,
-        validator: (String value) {
-          if (value.isEmpty) {
-            return 'Package Source is Required';
-          }
-
-          return null;
-        },
-        onSaved: (String value) {
-          packageSource = value;
-        },
-      ),
+    return Container(
+//      padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: <Widget>[
+            Text("Choose Package Source", textAlign: TextAlign.left,
+            ),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    width: 80.0,
+                    height: 75.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+//                  fit: BoxFit.cover,
+                          image: AssetImage('assets/images/shopping.png')
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                      color: Color(0xFFEA7313),
+                    ),
+                  ),
+                  //Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      width: 80.0,
+                      height: 75.0,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+//                  fit: BoxFit.cover,
+                            image: AssetImage('assets/images/home-run.png')
+                        ),
+                        border: Border.all(
+                          color: Colors.black,
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(15.0)
+                        ),
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        )
     );
   }
 
-  Widget _buildSourceAddress() {
+  Widget _buildRetailer() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
         decoration: InputDecoration(
-            labelText: 'Source Address',
+            labelText: 'Retailer',
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 borderSide: BorderSide(color: Colors.black))),
         validator: (String value) {
           if (value.isEmpty) {
-            return 'Source Address is Required';
+            return 'Retailer is Required';
           }
 
           return null;
         },
         onSaved: (String value) {
-          sourceAddress = value;
+          retailer = value;
         },
       ),
     );
@@ -173,7 +192,46 @@ class FormScreenState extends State<FormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Form Demo")),
+      resizeToAvoidBottomPadding: false,
+      appBar: PreferredSize(
+        preferredSize: Size(double.infinity, 100),
+        child: Container(
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(color: Colors.black12, spreadRadius: 5, blurRadius: 2)
+          ]),
+          //width: MediaQuery.of(context).size.width,
+          height: 100,
+          child: Container(
+            decoration: BoxDecoration(
+                color: Color(0xFF4E37B2),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30))),
+            child: Container(
+              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.navigate_before,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    "New Send Request",
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
+                  Icon(
+                    Icons.navigate_before,
+                    color: Colors.transparent,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
       body: Container(
         margin: EdgeInsets.all(24),
         child: Form(
@@ -186,7 +244,7 @@ class FormScreenState extends State<FormScreen> {
               _buildDescription(),
               _buildEstimatedWeight(),
               _buildPackageSource(),
-              _buildSourceAddress(),
+              _buildRetailer(),
               SizedBox(height: 100),
               RaisedButton(
                 child: Text(
@@ -205,11 +263,12 @@ class FormScreenState extends State<FormScreen> {
                   print(productDescription);
                   print(estimatedWeight);
                   print(packageSource);
-                  print(sourceAddress);
+                  print(retailer);
 
                   //Send to API
                 },
-              )
+              ),
+              Spacer(),
             ],
           ),
         ),
