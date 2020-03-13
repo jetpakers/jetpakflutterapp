@@ -16,8 +16,8 @@ class InvoiceScreenState extends State<InvoiceScreen> {
   String productDescription;
   String chargeableWeight;
   Double fees;
- Double insuranceFee;
- Double amount;
+  Double insuranceFee;
+  Double amount;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -145,6 +145,7 @@ class InvoiceScreenState extends State<InvoiceScreen> {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 borderSide: BorderSide(color: Colors.black))),
+        keyboardType: TextInputType.number,
         validator: (String value) {
           if (value.isEmpty) {
             return 'Handling Fees and Taxes  is Required';
@@ -266,34 +267,34 @@ class InvoiceScreenState extends State<InvoiceScreen> {
               ButtonTheme(
                 minWidth: 250.0,
                 height: 50.0,
-              child: RaisedButton(
-                color: Color(0xFFEA7313),
-                shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(12.0),
-                    side: BorderSide(color: Colors.grey)),
-                child: Text(
-                  'Make payment',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                child: RaisedButton(
+                  color: Color(0xFFEA7313),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(12.0),
+                      side: BorderSide(color: Colors.grey)),
+                  child: Text(
+                    'Make payment',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  onPressed: () {
+                    if (!_formKey.currentState.validate()) {
+                      return;
+                    }
+                    _formKey.currentState.save();
+
+                    print(productType);
+                    print(productName);
+                    print(productDescription);
+                    print(chargeableWeight);
+                    print(fees);
+                    print(insuranceFee);
+                    print(amount);
+
+                    //Send to API
+                  },
                 ),
-                onPressed: () {
-                  if (!_formKey.currentState.validate()) {
-                    return;
-                  }
-                  _formKey.currentState.save();
-
-                  print(productType);
-                  print(productName);
-                  print(productDescription);
-                  print(chargeableWeight);
-                  print(fees);
-                  print(insuranceFee);
-                  print(amount);
-
-                  //Send to API
-                },
               ),
-
-              ), ],
+            ],
             scrollDirection: Axis.vertical,
           ),
         ),

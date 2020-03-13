@@ -28,7 +28,7 @@ class SecondScreenState extends State<SecondScreen> {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 borderSide: BorderSide(color: Colors.black))),
-        maxLength: 10,
+
         validator: (String value) {
           if (value.isEmpty) {
             return 'Name is Required';
@@ -185,8 +185,9 @@ class SecondScreenState extends State<SecondScreen> {
         margin: EdgeInsets.all(24),
         child: Form(
           key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+
+          child: ListView(
+              padding: const EdgeInsets.all(8),
             children: <Widget>[
               _buildName(),
               _buildsurname(),

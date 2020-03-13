@@ -181,8 +181,7 @@ class ThirdScreenState extends State<ThirdScreen> {
         margin: EdgeInsets.all(24),
         child: Form(
           key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
             children: <Widget>[
               _buildPhoneNumber(),
               _buildCountry(),
@@ -212,7 +211,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                 ),
               ),
             ],
-          ),
+       ),
         ),
       ),
     );

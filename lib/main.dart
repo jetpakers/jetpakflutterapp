@@ -19,7 +19,7 @@ class JetpakApp extends StatelessWidget{
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: FormScreen(),
+      home: InvoiceScreen(),
     );
   }
 }
